@@ -4,16 +4,18 @@ https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-nod
 
 Deploy:
 npm install -g http-server
-http-server -p 8082 &
 
-nohup node server.js &
-nohup node server.js > /dev/null 2>&1 &
+# Inside project parlana-frontend, run:
+http-server -p 8082
 
+# Run on permanent way
 nohup http-server -p 8082 > /dev/null 2>&1 &
 
 
-Server on Python
-sudo python -m SimpleHTTPServer 80 &
+# Stop
+ps aux | grep http-server
+kill processID
+
 
 Angular:1.5.7
 https://code.angularjs.org/1.5.7/angular-1.5.7.zip
