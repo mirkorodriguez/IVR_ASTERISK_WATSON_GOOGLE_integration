@@ -32,7 +32,7 @@ public class CentralMasterController {
 	
 	@Autowired
 	private CentralMasterService centralMasterService;
-	
+
 	@RequestMapping(value = "/getObj", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public CentralMasterResponseDTO getCentralMasterByCentralNumber(
 			@RequestBody CentralMasterRequestDTO centralMasterRequestDTO) throws BusinessException {

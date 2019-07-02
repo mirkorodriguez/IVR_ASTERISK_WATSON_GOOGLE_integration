@@ -175,10 +175,10 @@
     <column id="COL46" populated="true" UUID="e4d90e40-5df8-4eb5-9ce8-aaa5f7c322c0" autoIncrement="false" autoIncrementSequenceName="call_event_call_event_final_emotion_fear_seq" defaultValue="" name="call_event_final_emotion_fear" nullable="1" physicalName="call_event_final_emotion_fear" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL47" populated="true" UUID="4e67c50d-275a-4315-9e8f-f6d5fb56c13c" autoIncrement="false" autoIncrementSequenceName="call_event_call_event_final_emotion_disgust_seq" defaultValue="" name="call_event_final_emotion_disgust" nullable="1" physicalName="call_event_final_emotion_disgust" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL47" populated="true" UUID="7dbe095b-3a0f-4db9-9d62-6fcc5ec32a43" autoIncrement="false" autoIncrementSequenceName="call_event_call_event_final_emotion_disgust_seq" defaultValue="" name="call_event_final_emotion_disgust" nullable="1" physicalName="call_event_final_emotion_disgust" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL48" populated="true" UUID="a5031abf-c0f9-4fd8-bea7-421008053bc4" autoIncrement="false" autoIncrementSequenceName="call_event_call_event_final_emotion_disgust_seq_1" defaultValue="" name="call_event_final_emotion_anger" nullable="1" physicalName="call_event_final_emotion_disgust_1" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL48" populated="true" UUID="081179de-a88e-4556-8b02-5923fc013f7a" autoIncrement="false" autoIncrementSequenceName="call_event_call_event_final_emotion_anger_seq" defaultValue="" name="call_event_final_emotion_anger" nullable="1" physicalName="call_event_final_emotion_anger" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
@@ -204,7 +204,7 @@
  <play-pen zoom="1.189207115002721" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB7" x="238" y="191" bgColor="0xf6bcbc" fgColor="0xcc0000" rounded="true" dashed="true"/>
   <table-pane table-ref="TAB17" x="1023" y="184" bgColor="0xeeeeee" fgColor="0x0000cc" rounded="true" dashed="true"/>
-  <table-pane table-ref="TAB30" x="212" y="479" bgColor="0xbfd6ff" fgColor="0x0000cc" rounded="true" dashed="true"/>
+  <table-pane table-ref="TAB30" x="217" y="485" bgColor="0xbfd6ff" fgColor="0x0000cc" rounded="true" dashed="true"/>
   <table-link relationship-ref="REL51" pkConnection="0.6862745098039216" fkConnection="0.3525641025641026" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="33"/>
  </play-pen>
  <critic-manager>

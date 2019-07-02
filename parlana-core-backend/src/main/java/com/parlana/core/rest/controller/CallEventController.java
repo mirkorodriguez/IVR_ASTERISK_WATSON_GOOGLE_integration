@@ -47,7 +47,7 @@ public class CallEventController {
 		callEventInput.setCallEventToCode(callEventToCode);
 		
 		List<CallEvent> callEventList = callEventService.getCallEventByCentralNumberAndCode(callEventInput);
-		List<CallEventResponseDTO> CallEventResponseDTOList = new ArrayList<CallEventResponseDTO>();
+		List<CallEventResponseDTO> callEventResponseDTOList = new ArrayList<CallEventResponseDTO>();
 		
 		if (callEventList != null && callEventList.size() != 0) {
 			
@@ -55,13 +55,14 @@ public class CallEventController {
 				Gson gson = new Gson();
 				String tmpObj = gson.toJson(callEvent);
 				CallEventResponseDTO callEventResponseDTO = gson.fromJson(tmpObj,CallEventResponseDTO.class);
-				CallEventResponseDTOList.add(callEventResponseDTO);
+				callEventResponseDTOList.add(callEventResponseDTO);
 			}
 			
 		}else{
 			throw new CentralMasterNotFoundException();
 		}
-		return CallEventResponseDTOList;
+		logger.debug("callEventResponseDTOList: " + callEventResponseDTOList.size() + " " +callEventResponseDTOList);
+		return callEventResponseDTOList;
 	}
 	
 	@RequestMapping(value = "/putObj", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)

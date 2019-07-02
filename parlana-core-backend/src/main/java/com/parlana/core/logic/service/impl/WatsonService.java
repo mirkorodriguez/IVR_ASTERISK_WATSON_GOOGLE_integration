@@ -1,5 +1,6 @@
 package com.parlana.core.logic.service.impl;
 
+
 import static com.parlana.core.util.Constants.*;
 
 import java.io.File;
@@ -25,7 +26,7 @@ public class WatsonService {
 	
 	public static ClassifierDTO watsonClassifier(Map<String,Object> params){
 		
-		String text = (String) params.get("speechToText");
+		String text = (String) params.get("textES");
 		String handle = (String) params.get("callingNumber");
 	    String filename = HOME_RESOURCES_WATSON + "watson_input_classifier.json";
 	    String newFilename = HOME_RESOURCES_WATSON + "watson_input_classifier_" + handle + ".json";
@@ -180,30 +181,15 @@ public class WatsonService {
 	}
 
 	public static String watsonTranslator(String text, String source, String target){
-//		String filename = HOME_RESOURCES_WATSON + "watson_input_translator.json";
-//		String newFilename = HOME_RESOURCES_WATSON + "watson_input_translator_tmp.json";
-		
-//	    try {
-//			SystemUtil.copyFile(new File(filename),new File(newFilename));
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	    
-//	    if(new File(newFilename).exists()) {
-//	    	SystemUtil.replaceTextInFile(new File(newFilename), "REPLACEME", text);	
-//	    }
-		
-		//String[] command = {"curl","-X","POST","-H","Content-Type: application/json","-H","Accept: application/json","-u",WATSON_TRANSLATOR_USERNAME + ":" + WATSON_TRANSLATOR_PASSWORD,"-d","@"+newFilename,WATSON_TRANSLATOR_ENDPOINT};
-	    //String[] command = {"curl","-X","POST","-H","Content-Type: application/json","-H","Accept: application/json","-u",WATSON_TRANSLATOR_USERNAME + ":" + WATSON_TRANSLATOR_PASSWORD,"-d","{ \"text\" : \"" + text + "\", \"source\" : \"" + source + "\", \"target\" : \"" + target + "\" }",WATSON_TRANSLATOR_ENDPOINT};
-		String[] command = {"curl","-X","POST","-H","Content-Type: application/json","-H","Accept: application/json","-u",WATSON_TRANSLATOR_USERNAME + ":" + WATSON_TRANSLATOR_PASSWORD,"-d","{ \"text\" : \"" + text + "\", \"model_id\" : \"" + source + "-" + target + "-conversational\" }",WATSON_TRANSLATOR_ENDPOINT};
-
+		String modelId = source + "-" + target;
+		String[] command = {"curl","-X","POST","-u","apikey:" + WATSON_TRANSLATOR_KEY,"--header","Content-Type: application/json","--data","{ \"text\": \"" + text + "\", \"model_id\" : \"" + modelId + "\"}", WATSON_TRANSLATOR_ENDPOINT};
+	
 		String result = SystemUtil.processCommand(command);
 		JSONObject object = new JSONObject(result);
 		logger.info("Result: \n" + object);
 		
 		JSONArray translations = object.getJSONArray("translations");
 		
-//		(new File(newFilename)).delete();
 	    return translations.getJSONObject(0).getString("translation");
 	}
 

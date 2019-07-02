@@ -1,9 +1,5 @@
 package com.parlana.core.util;
 
-import static com.parlana.core.util.Constants.GCLOD_PATH;
-import static com.parlana.core.util.Constants.GCLOD_SHELL;
-import static com.parlana.core.util.Constants.GCLOD_TOKEN_JSON;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,23 +32,23 @@ public class SystemUtil {
 		}
 	}
 	
-	public static String executeShell() throws Exception {	
-		ProcessBuilder ProcessBuilder = new ProcessBuilder();
-		ProcessBuilder.directory(new File(GCLOD_PATH));
-		ProcessBuilder.command(GCLOD_SHELL, GCLOD_TOKEN_JSON);
-		Process process = ProcessBuilder.start();
-		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-		StringBuilder stringBuilder = new StringBuilder();
-
-		String line = null;
-		while ((line = reader.readLine()) != null) {
-			stringBuilder.append(line);
-		}
-
-		String result = stringBuilder.toString();
-		System.out.println("TOKEN Generated : " + result);
-		return result.trim();
-	}
+//	public static String executeShell() throws Exception {	
+//		ProcessBuilder ProcessBuilder = new ProcessBuilder();
+//		ProcessBuilder.directory(new File(GCLOD_PATH));
+//		ProcessBuilder.command(GCLOD_SHELL, GCLOD_TOKEN_JSON);
+//		Process process = ProcessBuilder.start();
+//		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+//		StringBuilder stringBuilder = new StringBuilder();
+//
+//		String line = null;
+//		while ((line = reader.readLine()) != null) {
+//			stringBuilder.append(line);
+//		}
+//
+//		String result = stringBuilder.toString();
+//		System.out.println("TOKEN Generated : " + result);
+//		return result.trim();
+//	}
 	
 	public static String processCommand(String[] command) {
 		String result = "";

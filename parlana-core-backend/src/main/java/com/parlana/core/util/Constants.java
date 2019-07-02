@@ -5,22 +5,11 @@ public class Constants {
 //  Make google bucket readable to download audio files	
 //	$ ./gsutil iam ch allUsers:objectViewer gs://mirkos-bucket
 
-//	 //Local
-//	 public final static String GCLOD_PATH = "/home/mirko/Programs/google-cloud-sdk/bin/";
-//	 public final static String GCLOD_TOKEN_JSON = "/home/mirko/eclipse-workspace/TestProject/resources/SpeechRecognitionProject.json";
-//	 public final static String GCLOD_SHELL = "./obtainGoogleToken.sh";
+//	 // Local
 //	 public final static String HOME_RESOURCES_FILES = "/home/mirko/eclipse-workspace/parlana-admin-backend/src/main/resources/files/";
 
-	// EC2
-	public final static String GCLOD_PATH = "/home/ec2-user/google/google-cloud-sdk/bin/";
-	public final static String GCLOD_TOKEN_JSON = "/home/ec2-user/google/google-cloud-sdk/bin/SpeechRecognitionProject.json";
-	public final static String GCLOD_SHELL = "./obtainGoogleToken.sh";
+	// Cloud
 	public final static String HOME_RESOURCES_FILES = "/home/ec2-user/files/";
-	
-	
-	
-	
-
 	public final static String KEY = "@vay@";
 
 	public final static String GOOGLE_APPLICATION_CREDENTIALS = "GOOGLE_APPLICATION_CREDENTIALS";
@@ -48,8 +37,7 @@ public class Constants {
 	public final static String WATSON_NLU_PASSWORD = "NuJGNfyV5Xa7";
 
 	// Watson Translator
-	public final static String WATSON_TRANSLATOR_ENDPOINT = "https://gateway.watsonplatform.net/language-translator/api/v2/translate";
-	public final static String WATSON_TRANSLATOR_USERNAME = "0770bcea-72eb-431d-b174-2e9c98cb0f2a";
-	public final static String WATSON_TRANSLATOR_PASSWORD = "Oq3wuoXNxGyo";
+	public final static String WATSON_TRANSLATOR_ENDPOINT = "https://gateway.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01";
+	public final static String WATSON_TRANSLATOR_KEY = "LcmgT5bignKqQNbzM1YJ5vX3r33kv5xdrgCK9AwKOxE4";
 
 }

@@ -25,20 +25,23 @@
         <form name="myForm">
           <div class="login-container" ng-show="showLogin">
             <div class="row">
+
               <div class="col-md-12">
                 <div class="form-group">
-                  <label>Central Number</label>
-                  <input type="text" name="centralNumber" ng-model="cn" required class="form-control"  autofocus="autofocus">
-                  <div ng-show="myForm.centralNumber.$error.required &amp;&amp; myForm.centralNumber.$touched" class="error">Required!</div>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>Central Code</label>
-                  <input type="text" name="centralCode" ng-model="cc" required class="form-control">
+                  <label>Central Name</label>
+                  <input type="text" name="centralCode" ng-model="cc" required class="form-control" autofocus="autofocus">
                   <div ng-show="myForm.centralCode.$error.required &amp;&amp; myForm.centralCode.$touched" class="error">Required!</div>
                 </div>
               </div>
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Central Number</label>
+                  <input type="text" name="centralNumber" ng-model="cn" required class="form-control">
+                  <div ng-show="myForm.centralNumber.$error.required &amp;&amp; myForm.centralNumber.$touched" class="error">Required!</div>
+                </div>
+              </div>
+
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Password</label>
@@ -46,6 +49,7 @@
                   <div ng-show="myForm.pass.$error.required &amp;&amp; myForm.pass.$touched" class="error">Required!</div>
                 </div>
               </div>
+
               <div class="col-md-12">
                 <div class="form-group">
                   <button ng-click="authenticate2()" ng-disabled="myForm.$invalid" class="btn btn-info pull-right">
@@ -72,7 +76,6 @@
   <!-- Main Body -->
   <div class="container" ng-show="showSuccess">
     <img src="images/watsonlogo.jpg" class="img-responsive pull-right" alt="Watson" width="110" height="55">
-    <img src="images/avayalogo.jpg" class="img-responsive pull-right" alt="Avaya" width="110" height="55">
 
     <h3>Admin Contact Center</h3>
     <div class="clearfix"></div>
@@ -87,7 +90,7 @@
     <table class="table table-striped">
         <tr style="background-color:lightblue;">
           <th colspan="2" class="text-danger">
-            <h3>{{centralMaster.centralNumber}}  {{centralMaster.centralCode}}</h3></th>
+            <h3>{{centralMaster.centralNumber}}  ({{centralMaster.centralCode}})</h3></th>
           <th>SMS: </th>
           <td align="left">{{centralMaster.centralNumberPstn}}</td>
           <th>Language: </th>
