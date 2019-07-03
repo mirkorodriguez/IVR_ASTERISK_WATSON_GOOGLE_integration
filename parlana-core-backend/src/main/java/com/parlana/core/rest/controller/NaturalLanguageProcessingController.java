@@ -112,10 +112,10 @@ public class NaturalLanguageProcessingController {
 			System.out.println("Language TEXT: " + langEvaluated);
 			inputParams.put("langEvaluated", langEvaluated);
 			
-			if(!LANG_BASE.equals(langEvaluated)) {
+			if(!LANG_BASE_ES.equals(langEvaluated)) {
 				System.out.println("Inside");
 				String speechToTextEN = WatsonService.watsonTranslator(speechToTextDTO.getTranscript(), langEvaluated, "en");
-				String speechToTextES = WatsonService.watsonTranslator(speechToTextEN, "en", LANG_BASE);
+				String speechToTextES = WatsonService.watsonTranslator(speechToTextEN, "en", LANG_BASE_ES);
 				//Overriding
 				inputParams.put("speechToText", speechToTextES);
 			}

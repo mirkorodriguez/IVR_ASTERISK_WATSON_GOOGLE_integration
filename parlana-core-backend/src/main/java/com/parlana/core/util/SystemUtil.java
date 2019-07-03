@@ -49,7 +49,23 @@ public class SystemUtil {
 //		System.out.println("TOKEN Generated : " + result);
 //		return result.trim();
 //	}
-	
+
+	public static String executeShell(String command) throws Exception {
+		ProcessBuilder ProcessBuilder = new ProcessBuilder();
+		ProcessBuilder.command(command);
+		Process process = ProcessBuilder.start();
+		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		StringBuilder stringBuilder = new StringBuilder();
+
+		String line = null;
+		while ((line = reader.readLine()) != null) {
+			stringBuilder.append(line);
+		}
+
+		String result = stringBuilder.toString();
+		return result.trim();
+	}
+
 	public static String processCommand(String[] command) {
 		String result = "";
 		ProcessBuilder process = new ProcessBuilder(command);

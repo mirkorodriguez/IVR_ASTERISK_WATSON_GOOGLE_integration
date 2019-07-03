@@ -26,81 +26,36 @@ public class WatsonService {
 	
 	public static ClassifierDTO watsonClassifier(Map<String,Object> params){
 		
-		String text = (String) params.get("textES");
-		String handle = (String) params.get("callingNumber");
-	    String filename = HOME_RESOURCES_WATSON + "watson_input_classifier.json";
-	    String newFilename = HOME_RESOURCES_WATSON + "watson_input_classifier_" + handle + ".json";
+		String text = (String) params.get("text");
 	    
-	    try {
-	    	SystemUtil.copyFile(new File(filename),new File(newFilename));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	    
-	    if(new File(newFilename).exists()) {
-	    	SystemUtil.replaceTextInFile(new File(newFilename), "REPLACEME", text);	
-	    }
-	    
-	    String[] command = {"curl","-X","POST","-u",WATSON_CONV_USERNAME + ":" + WATSON_CONV_PASSWORD,"-H","Content-Type: application/json","-d","@"+newFilename, WATSON_CONV_ENDPOINT};
-	    	    
+  	    String[] command = {"curl","-G","-u","apikey:" + WATSON_NLC_KEY, WATSON_NLC_ENDPOINT, "--data-urlencode","text=" + text};
+  	
 		String result = SystemUtil.processCommand(command);
 		JSONObject object = new JSONObject(result);
 		logger.info("Result: \n"+object);
-	    JSONArray intents = object.getJSONArray("intents");
-
+		
+	    JSONArray classesJson = object.getJSONArray("classes");
+	    String top_class = object.getString("top_class");
+	    logger.info("\nclassesJson: " + classesJson);
+	    logger.info("\ntop_class: "+top_class);
+	    
     	String intent = INTENT_DEFAULT;
 	    double confidence = 0.0;
 
-	    List<ExtensionResponseDTO> extensionResponseDTOList = (List<ExtensionResponseDTO>) params.get("extensionResponseDTOList"); 
-	    
-	    for (ExtensionResponseDTO extensionResponseDTO : extensionResponseDTOList) {
-			
-		}
 	    ClassifierDTO classifierDTO = new ClassifierDTO();
     	classifierDTO.setIntent(intent);
 	    classifierDTO.setConfidence(confidence);
-	    classifierDTO.setExtensionNumber("");
-	    classifierDTO.setExtensionAreaName("");
-	    classifierDTO.setExtensionPersonFullname("");
-	    classifierDTO.setExtensionPersonEmail("");
-	    classifierDTO.setExtensionPersonPhone("");
-	    
-	    if(intents.toString().equals("[]")){
-		    return classifierDTO;		    
-	    }else {
 
-		    intent = intents.getJSONObject(0).getString("intent");
-		    confidence = intents.getJSONObject(0).getDouble("confidence");		    
-
-		    for (ExtensionResponseDTO extensionResponseDTO : extensionResponseDTOList) {
-		    	String extensionIntentCode = extensionResponseDTO.getExtensionIntentCode();
-		    	if(intent.equals(extensionIntentCode.trim())){
-				    Double threasholdIntent = Double.parseDouble(extensionResponseDTO.getExtensionIntentConfidence()); 
-				    if(confidence < threasholdIntent) {
-				    	return classifierDTO;
-				    }else {
-				    	
-			    		String extensionNumber = extensionResponseDTO.getExtensionNumber();
-			    		String extensionAreaName = extensionResponseDTO.getExtensionAreaName();
-			    		String extensionPersonFullname = extensionResponseDTO.getExtensionPersonFullname();
-			    		String extensionPersonEmail = extensionResponseDTO.getExtensionPersonEmail();
-			    		String extensionPersonPhone = extensionResponseDTO.getExtensionPersonPhone();
-					    
-			        	classifierDTO.setIntent(intent);
-			    	    classifierDTO.setConfidence(confidence);
-					    classifierDTO.setExtensionNumber(extensionNumber);
-					    classifierDTO.setExtensionAreaName(extensionAreaName);
-					    classifierDTO.setExtensionPersonFullname(extensionPersonFullname);
-					    classifierDTO.setExtensionPersonEmail(extensionPersonEmail);
-					    classifierDTO.setExtensionPersonPhone(extensionPersonPhone);
-				    }
-
-				    break;
-		    	}
+	    for (int i = 0; i < classesJson.length(); i++) {
+	    	intent = classesJson.getJSONObject(i).getString("class_name");
+	    	confidence = classesJson.getJSONObject(i).getDouble("confidence");
+			if(top_class.equals(intent)) {
+				classifierDTO.setIntent(intent);
+			    classifierDTO.setConfidence(confidence);
+			    break;
 			}
-	    }
-	    	    
-	    (new File(newFilename)).delete();
+		}
+	    
 		return classifierDTO;
 	}
 	
@@ -117,7 +72,7 @@ public class WatsonService {
 	    	SystemUtil.replaceTextInFile(new File(newFilename), "REPLACEME", text);	
 	    }
 		
-		String[] command = {"curl","-X","POST","-H","Content-Type: application/json","-u",WATSON_NLU_USERNAME + ":" + WATSON_NLU_PASSWORD,"-d","@"+newFilename,WATSON_NLU_ENDPOINT};
+		String[] command = {"curl","-X","POST","-u","apikey:" + WATSON_NLU_KEY,"--header","Content-Type: application/json","--data","@"+newFilename,WATSON_NLU_ENDPOINT};
 		
 		String result = SystemUtil.processCommand(command);
 		JSONObject object = new JSONObject(result);
@@ -147,7 +102,7 @@ public class WatsonService {
 	    	SystemUtil.replaceTextInFile(new File(newFilename), "REPLACEME", text);	
 	    }
 		
-		String[] command = {"curl","-X","POST","-H","Content-Type: application/json","-u",WATSON_NLU_USERNAME + ":" + WATSON_NLU_PASSWORD,"-d","@"+newFilename,WATSON_NLU_ENDPOINT};
+	    String[] command = {"curl","-X","POST","-u","apikey:" + WATSON_NLU_KEY,"--header","Content-Type: application/json","--data","@"+newFilename,WATSON_NLU_ENDPOINT};
 		
 		String result = SystemUtil.processCommand(command);
 		JSONObject object = new JSONObject(result);

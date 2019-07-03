@@ -5,11 +5,11 @@ public class Constants {
 //  Make google bucket readable to download audio files	
 //	$ ./gsutil iam ch allUsers:objectViewer gs://mirkos-bucket
 
-//	 // Local
-//	 public final static String HOME_RESOURCES_FILES = "/home/mirko/eclipse-workspace/parlana-admin-backend/src/main/resources/files/";
-
+	// Local
+	public final static String HOME_RESOURCES_FILES = "/home/mirko/Desktop/Tmp/tmp2/git-repos/IVR_ASTERISK_WATSON_GOOGLE_integration/parlana-core-backend/src/main/resources/files/";
 	// Cloud
-	public final static String HOME_RESOURCES_FILES = "/home/ec2-user/files/";
+//	public final static String HOME_RESOURCES_FILES = "/home/ec2-user/files/";
+
 	public final static String KEY = "@vay@";
 
 	public final static String GOOGLE_APPLICATION_CREDENTIALS = "GOOGLE_APPLICATION_CREDENTIALS";
@@ -17,8 +17,12 @@ public class Constants {
 	public final static String HOME_RESOURCES_GOOGLE = HOME_RESOURCES_FILES + "google/";
 
 	public final static String INTENT_DEFAULT = "INTENT_DEFAULT";
+	public final static Double INTENT_DEFAULT_CONFIDENCE = 0.8;
+	public final static String INTENT_CORTE_LINEA = "INTENT_CORTE_LINEA";
+	public final static String INTENT_FACTURACION = "INTENT_FACTURACION";
 
-	public final static String LANG_BASE = "es";
+	public final static String LANG_BASE_ES = "es";
+	public final static String LANG_BASE_EN = "en";
 	
 	// Google Cloud
 	public final static String GOOGLE_SPEECH_API_URI = "https://speech.googleapis.com/v1/speech:recognize";
@@ -27,14 +31,18 @@ public class Constants {
 
 	// Watson Conversation
 	public final static String WATSON_CONV_WORKSPACE_ID = "c63c58b3-27f6-4f05-a48d-376371974af9";
-	public final static String WATSON_CONV_ENDPOINT = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/" + WATSON_CONV_WORKSPACE_ID + "/message?version=2017-05-26";
+	public final static String WATSON_CONV_ENDPOINT = "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/773d84x567-nlc-915/classify";
 	public final static String WATSON_CONV_USERNAME = "a9ef5682-f265-4e11-972a-058fee624166";
 	public final static String WATSON_CONV_PASSWORD = "QNHJWrnm7lVH";
 
+	// Watson NLC
+	public final static String WATSON_NLC_CLASSIFIER_ID = "773d84x567-nlc-915";
+	public final static String WATSON_NLC_ENDPOINT = "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/" + WATSON_NLC_CLASSIFIER_ID + "/classify";
+	public final static String WATSON_NLC_KEY = "6Bszn_AxqftjHODDHkfDLfyggwxz06aglO-1CHBsDVql";
+
 	// Watson NLU
-	public final static String WATSON_NLU_ENDPOINT = "https://gateway.watsonplatform.net/natural-language-understanding/api/v1/analyze?version=2017-02-27";
-	public final static String WATSON_NLU_USERNAME = "9e36a936-f0c7-4975-9a17-2b382a28dfd2";
-	public final static String WATSON_NLU_PASSWORD = "NuJGNfyV5Xa7";
+	public final static String WATSON_NLU_ENDPOINT = "https://gateway.watsonplatform.net/natural-language-understanding/api/v1/analyze?version=2018-11-16";
+	public final static String WATSON_NLU_KEY = "ZYbqM_XVTAjKWD6EQCitVFMqpMTpCK3R1cWh1tzuhyqh";
 
 	// Watson Translator
 	public final static String WATSON_TRANSLATOR_ENDPOINT = "https://gateway.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01";
