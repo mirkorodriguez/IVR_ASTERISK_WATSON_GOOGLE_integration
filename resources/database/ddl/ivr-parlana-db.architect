@@ -4,11 +4,11 @@
  <print-settings numCopies="1" zoom="1.0" pageNumbersPrinted="true" orientation="1" paperWidth="612.0" paperHeight="792.0" leftBorder="50.0" rightBorder="50.0" topBorder="50.0" bottomBorder="50.0" />
  <project-data-sources>
   <data-source id="DS0">
+   <property key="Logical" value="ParlanaDBinstance-MariaDB-AWS" />
    <property key="Connection Type" value="MySQL" />
-   <property key="Logical" value="PlayPen Database" />
-   <property key="JDBC URL" value="jdbc:mysql://parlanadb.cmmbe2hbtuz7.us-east-2.rds.amazonaws.com:3306/parlanadb" />
-   <property key="UID" value="parlanadb" />
-   <property key="PWD" value="parlanadb" />
+   <property key="JDBC URL" value="jdbc:mysql://parlanadbinstance.ceiwtsarkplq.us-east-2.rds.amazonaws.com:3306/parlanadb" />
+   <property key="UID" value="admin" />
+   <property key="PWD" value="admin123" />
    <property key="ca.sqlpower.architect.etl.kettle.database" value="" />
    <property key="ca.sqlpower.architect.etl.kettle.port" value="" />
    <property key="ca.sqlpower.architect.etl.kettle.hostname" value="" />
@@ -16,11 +16,11 @@
    <property key="ca.sqlpower.architect.etl.kettle.repos.password" value="" />
   </data-source>
   <data-source id="DS0">
+   <property key="Logical" value="ParlanaDBinstance-MariaDB-AWS" />
    <property key="Connection Type" value="MySQL" />
-   <property key="Logical" value="PlayPen Database" />
-   <property key="JDBC URL" value="jdbc:mysql://parlanadb.cmmbe2hbtuz7.us-east-2.rds.amazonaws.com:3306/parlanadb" />
-   <property key="UID" value="parlanadb" />
-   <property key="PWD" value="parlanadb" />
+   <property key="JDBC URL" value="jdbc:mysql://parlanadbinstance.ceiwtsarkplq.us-east-2.rds.amazonaws.com:3306/parlanadb" />
+   <property key="UID" value="admin" />
+   <property key="PWD" value="admin123" />
    <property key="ca.sqlpower.architect.etl.kettle.database" value="" />
    <property key="ca.sqlpower.architect.etl.kettle.port" value="" />
    <property key="ca.sqlpower.architect.etl.kettle.hostname" value="" />
@@ -29,7 +29,7 @@
   </data-source>
  </project-data-sources>
  <source-databases>
-  <database id="DB0" populated="true" UUID="4ceb8e5e-bbc3-44c7-b25c-7530b284079e" dbcs-ref="DS0" name="PlayPen Database" physicalName="ParlanaDB-MariaDB" >
+  <database id="DB0" populated="true" UUID="4ceb8e5e-bbc3-44c7-b25c-7530b284079e" dbcs-ref="DS0" name="ParlanaDBinstance-MariaDB-AWS" physicalName="ParlanaDB-MariaDB" >
    <catalog id="CAT1" populated="false" UUID="53f1c27c-389b-406d-b77f-a38695400ec6" name="information_schema" nativeTerm="database" physicalName="information_schema" >
    </catalog>
    <catalog id="CAT2" populated="false" UUID="ed226baf-45ef-44e8-b29e-c8d3f990b9a1" name="innodb" nativeTerm="database" physicalName="innodb" >
@@ -198,7 +198,7 @@
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="true" target-catalog="parlanadb"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="false" target-catalog="parlanadb"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.189207115002721" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">

@@ -165,35 +165,33 @@ public class ProcessTextController {
 		 return emotionDTO;
 	 }
 
-		 private int saveAllDataInCallEvent(HashMap<String, String> allData) {
-		
-		 CallEvent callEvent = new CallEvent();
-		
-		 callEvent.setCallEventDatetime(allData.get("callEventDatetime"));
-		 callEvent.setCallEventFrom(allData.get("callEventFrom"));
-		 callEvent.setCallEventTo(allData.get("callEventTo"));
-		 callEvent.setCallEventToCode(allData.get("callEventToCode"));
-		 callEvent.setCallEventAudioWav(allData.get("callEventAudioWav"));
-		 callEvent.setCallEventText(allData.get("callEventText"));
-		 callEvent.setCallEventTextConfidence(allData.get("callEventTextConfidence"));
-		 callEvent.setCallEventIntentCode(allData.get("callEventIntentCode"));
-		 callEvent.setCallEventIntentConfidence(allData.get("callEventIntentConfidence"));
-		 callEvent.setCallEventFinalExtension(allData.get("callEventFinalExtension"));
-		 callEvent.setCallEventFinalSentimentLabel(allData.get("callEventFinalSentimentLabel"));
-		 callEvent.setCallEventFinalSentimentScore(allData.get("callEventFinalSentimentScore"));
-		 callEvent.setCallEventFinalEmotionSadness(allData.get("callEventFinalEmotionSadness"));
-		 callEvent.setCallEventFinalEmotionJoy(allData.get("callEventFinalEmotionJoy"));
-		 callEvent.setCallEventFinalEmotionFear(allData.get("callEventFinalEmotionFear"));
-		 callEvent.setCallEventFinalEmotionDisgust(allData.get("callEventFinalEmotionDisgust"));
-		 callEvent.setCallEventFinalEmotionAnger(allData.get("callEventFinalEmotionAnger"));
-		
-		 logger.debug("Registering call event FROM: " + callEvent.getCallEventFrom());
-		 logger.debug("Registering call event TO: " + callEvent.getCallEventTo());
-		
-		 int insertResult = 0;
-		 insertResult = callEventService.registerCallEvent(callEvent);
-		 logger.info("insertResult: " + insertResult);
-		 return insertResult;
-		 }
+	private int saveAllDataInCallEvent(HashMap<String, String> allData) {
+		CallEvent callEvent = new CallEvent();
+		callEvent.setCallEventDatetime(allData.get("callEventDatetime"));
+		callEvent.setCallEventFrom(allData.get("callEventFrom"));
+		callEvent.setCallEventTo(allData.get("callEventTo"));
+		callEvent.setCallEventToCode(allData.get("callEventToCode"));
+		callEvent.setCallEventAudioWav(allData.get("callEventAudioWav"));
+		callEvent.setCallEventText(allData.get("callEventText"));
+		callEvent.setCallEventTextConfidence(allData.get("callEventTextConfidence"));
+		callEvent.setCallEventIntentCode(allData.get("callEventIntentCode"));
+		callEvent.setCallEventIntentConfidence(allData.get("callEventIntentConfidence"));
+		callEvent.setCallEventFinalExtension(allData.get("callEventFinalExtension"));
+		callEvent.setCallEventFinalSentimentLabel(allData.get("callEventFinalSentimentLabel"));
+		callEvent.setCallEventFinalSentimentScore(allData.get("callEventFinalSentimentScore"));
+		callEvent.setCallEventFinalEmotionSadness(allData.get("callEventFinalEmotionSadness"));
+		callEvent.setCallEventFinalEmotionJoy(allData.get("callEventFinalEmotionJoy"));
+		callEvent.setCallEventFinalEmotionFear(allData.get("callEventFinalEmotionFear"));
+		callEvent.setCallEventFinalEmotionDisgust(allData.get("callEventFinalEmotionDisgust"));
+		callEvent.setCallEventFinalEmotionAnger(allData.get("callEventFinalEmotionAnger"));
+
+		logger.debug("Registering call event FROM: " + callEvent.getCallEventFrom());
+		logger.debug("Registering call event TO: " + callEvent.getCallEventTo());
+
+		int insertResult = 0;
+		insertResult = callEventService.registerCallEvent(callEvent);
+		logger.info("insertResult: " + insertResult);
+		return insertResult;
+	}
 
 }

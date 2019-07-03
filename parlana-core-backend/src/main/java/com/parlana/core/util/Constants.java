@@ -17,7 +17,7 @@ public class Constants {
 	public final static String HOME_RESOURCES_GOOGLE = HOME_RESOURCES_FILES + "google/";
 
 	public final static String INTENT_DEFAULT = "INTENT_DEFAULT";
-	public final static Double INTENT_DEFAULT_CONFIDENCE = 0.8;
+	public final static Double INTENT_DEFAULT_CONFIDENCE = 0.95;
 	public final static String INTENT_CORTE_LINEA = "INTENT_CORTE_LINEA";
 	public final static String INTENT_FACTURACION = "INTENT_FACTURACION";
 
@@ -36,9 +36,9 @@ public class Constants {
 	public final static String WATSON_CONV_PASSWORD = "QNHJWrnm7lVH";
 
 	// Watson NLC
-	public final static String WATSON_NLC_CLASSIFIER_ID = "773d84x567-nlc-915";
+	public final static String WATSON_NLC_CLASSIFIER_ID = "b50852x572-nlc-80";
 	public final static String WATSON_NLC_ENDPOINT = "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/" + WATSON_NLC_CLASSIFIER_ID + "/classify";
-	public final static String WATSON_NLC_KEY = "6Bszn_AxqftjHODDHkfDLfyggwxz06aglO-1CHBsDVql";
+	public final static String WATSON_NLC_KEY = "oPBZPeCKPGxhCTwGyBgVTn-cdkP1ij6WbMLpyjlgYF9w";
 
 	// Watson NLU
 	public final static String WATSON_NLU_ENDPOINT = "https://gateway.watsonplatform.net/natural-language-understanding/api/v1/analyze?version=2018-11-16";
