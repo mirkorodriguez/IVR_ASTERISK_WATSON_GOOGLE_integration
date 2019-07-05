@@ -10,7 +10,7 @@ app.controller('myController',function($scope, $http){
 	$scope.showSuccess = false; // set Success Flag
   $scope.loading = false;
   // $scope.rp = "http://18.217.126.228:8080/parlana-core-backend/s";
-  $scope.rp = "http://localhost:8080/parlana-core-backend/s";
+  $scope.rp = "/parlana-core-backend/s";
 
   console.log("Starting ...");
   console.log("Developed by Mirko J. Rodriguez");

@@ -6,9 +6,9 @@ public class Constants {
 //	$ ./gsutil iam ch allUsers:objectViewer gs://mirkos-bucket
 
 	// Local
-	public final static String HOME_RESOURCES_FILES = "/home/mirko/Desktop/Tmp/tmp2/git-repos/IVR_ASTERISK_WATSON_GOOGLE_integration/parlana-core-backend/src/main/resources/files/";
+//	public final static String HOME_RESOURCES_FILES = "/home/mirko/Desktop/Tmp/tmp2/git-repos/IVR_ASTERISK_WATSON_GOOGLE_integration/parlana-core-backend/src/main/resources/files/";
 	// Cloud
-//	public final static String HOME_RESOURCES_FILES = "/home/ec2-user/files/";
+	public final static String HOME_RESOURCES_FILES = "/home/watson_ibm_peru/apache-tomee-plume-8.0.0-M3/webapps/parlana-core-backend/WEB-INF/classes/files/";
 
 	public final static String KEY = "@vay@";
 
